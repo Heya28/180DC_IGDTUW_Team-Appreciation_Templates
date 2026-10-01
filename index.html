@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spotlight Awards · 180DC IGDTUW</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#12062b;--ink:#fff;--mute:#c9b8f2;--a:#ff3d9a;--b:#ffb800;--c:#22d3ee;--card:#1b0b40;--line:rgba(255,255,255,.2);--glow:rgba(255,61,154,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff4fa;--ink:#2a0f4d;--mute:#6b4a92;--card:#fff;--line:rgba(80,20,120,.22);--glow:rgba(255,61,154,.25)}}
+:root[data-theme="light"]{--bg:#fff4fa;--ink:#2a0f4d;--mute:#6b4a92;--card:#fff;--line:rgba(80,20,120,.22);--glow:rgba(255,61,154,.25)}
+:root[data-theme="dark"]{--bg:#12062b;--ink:#fff;--mute:#c9b8f2;--card:#1b0b40;--line:rgba(255,255,255,.2);--glow:rgba(255,61,154,.35)}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.5 Figtree,system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+#bg i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.45;animation:drift 18s ease-in-out infinite alternate}
+#bg i:nth-child(1){background:var(--a);left:-15vmax;top:-10vmax}
+#bg i:nth-child(2){background:var(--c);right:-20vmax;top:25vh;animation-delay:-6s}
+#bg i:nth-child(3){background:var(--b);left:15vw;bottom:-30vmax;animation-delay:-11s;opacity:.3}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:50}
+.screen{display:none;min-height:90vh;padding:28px 16px 40px;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px}
+.screen.on{display:flex;animation:in .6s both}
+@keyframes in{from{opacity:0;transform:scale(.97)}}
+h1,h2{font-family:Unbounded,system-ui,sans-serif;margin:0;line-height:1.1}
+h1{font-size:clamp(30px,7vw,60px);font-weight:800;background:linear-gradient(90deg,var(--b),var(--a),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent;max-width:14em}
+h2{font-size:clamp(22px,4.5vw,36px)}
+p{margin:0;color:var(--mute);max-width:34em}
+.btn{font:600 18px Figtree,system-ui,sans-serif;color:#1b0b40;border:0;border-radius:999px;padding:14px 32px;cursor:pointer;background:linear-gradient(90deg,var(--b),var(--a));box-shadow:0 8px 30px var(--glow);transition:transform .15s}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn:focus-visible,.card:focus-visible,#tro:focus-visible,.link:focus-visible,textarea:focus-visible,#mood button:focus-visible{outline:3px solid var(--c);outline-offset:4px}
+.link{background:none;border:0;color:var(--mute);font:inherit;text-decoration:underline;cursor:pointer;padding:6px}
+.stage{position:relative;width:min(280px,70vw)}
+.stage .sp{position:absolute;width:18px;height:18px;animation:tw 2.2s ease-in-out infinite}
+@keyframes tw{0%,100%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1) rotate(90deg);opacity:1}}
+#tro{display:block;width:100%;background:none;border:0;padding:0;cursor:pointer;filter:drop-shadow(0 0 28px rgba(255,184,0,.6));animation:fl 3.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#tro.hit{animation:none;transform:scale(1.08) rotate(-2deg)}
+@keyframes fl{50%{transform:translateY(-10px)}}
+.meter{width:min(360px,80vw);height:22px;border-radius:99px;border:2px solid var(--line);overflow:hidden;background:var(--card)}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c),var(--a),var(--b));transition:width .08s}
+.grp{width:min(900px,100%);display:flex;flex-direction:column;gap:12px;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;width:100%}
+.card{position:relative;overflow:hidden;border-radius:26px;border:0;padding:0;background:none;color:var(--ink);font:inherit;cursor:pointer;min-height:230px;box-shadow:0 10px 40px var(--glow);transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card::before{content:"";position:absolute;inset:-60%;background:conic-gradient(var(--a),var(--b),var(--c),var(--a));animation:spin 5s linear infinite;opacity:.7}
+.card::after{content:"";position:absolute;inset:3px;border-radius:23px;background:var(--card)}
+.card>div{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:22px 16px;min-height:230px}
+@keyframes spin{to{transform:rotate(1turn)}}
+.card svg{width:64px;height:64px}
+.role{color:var(--mute);font-size:15px}
+.nm{font-family:Unbounded,system-ui,sans-serif;font-weight:800;font-size:clamp(22px,4vw,28px);letter-spacing:.02em;word-break:break-word}
+.card.done .nm{background:linear-gradient(90deg,var(--b),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tap{font-size:14px;color:var(--c)}
+.card.done{cursor:default}.card.done:hover{transform:none}.card.done .tap{display:none}
+#fin{display:none;gap:14px;flex-direction:column;align-items:center}#fin.on{display:flex;animation:in .6s both}
+.opt{background:var(--card);color:var(--ink);border:2px solid var(--line);box-shadow:none;min-height:56px}
+.mc{font-size:28px;padding:0;min-height:72px}
+.opt.bad{border-color:var(--a);animation:sh .3s}.opt.good{border:2px solid var(--c);background:linear-gradient(90deg,var(--b),var(--a));color:#1b0b40}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.fb{width:min(560px,100%);display:flex;flex-direction:column;gap:12px;text-align:left}
+.fb label{display:flex;flex-direction:column;gap:6px;color:var(--mute);font-size:15px}
+textarea{min-height:76px;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;resize:vertical}
+#mood{display:flex;gap:8px;justify-content:center}
+#mood button{font-size:28px;width:54px;height:54px;border-radius:50%;border:2px solid var(--line);background:var(--card);cursor:pointer}
+#mood button[aria-pressed="true"]{border-color:var(--b);transform:scale(1.15);box-shadow:0 0 18px var(--glow)}
+#own{width:min(700px,100%);display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:12px}#own[hidden]{display:none}
+.acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.acts .btn{font-size:16px;padding:10px 22px}
+#list{width:100%;display:flex;flex-direction:column;gap:10px}
+.item{text-align:left;width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-size:15px}
+.item b{font-weight:600;color:var(--c)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3a0"/><stop offset=".5" stop-color="#ffb800"/><stop offset="1" stop-color="#ff7a00"/></linearGradient>
+<symbol id="st" viewBox="-10 -10 20 20"><path d="M0-10L2.5-2.5 10 0 2.5 2.5 0 10-2.5 2.5-10 0-2.5-2.5Z"/></symbol>
+<symbol id="crown" viewBox="0 0 64 64"><path d="M8 46L4 18l16 12 12-20 12 20 16-12-4 28Z" fill="url(#g)"/><path d="M10 50h44v7H10Z" fill="#ff7a00"/><circle cx="32" cy="32" r="4" fill="#fff"/></symbol>
+<symbol id="medal" viewBox="0 0 64 64"><path d="M16 2l16 24 16-24h-10l-6 9-6-9Z" fill="#ff3d9a"/><circle cx="32" cy="42" r="18" fill="url(#g)"/><use href="#st" x="20" y="30" width="24" height="24" fill="#fff"/></symbol>
+<symbol id="trophy" viewBox="0 0 200 230"><path d="M55 30h90v50c0 33-20 55-45 55S55 113 55 80Z" fill="url(#g)"/><path d="M55 45H30c0 30 12 45 32 50M145 45h25c0 30-12 45-32 50" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round"/><rect x="92" y="133" width="16" height="32" fill="url(#g)"/><path d="M65 165h70l8 25H57Z" fill="url(#g)"/><rect x="50" y="190" width="100" height="16" rx="6" fill="#c25e00"/><use href="#st" x="82" y="52" width="36" height="36" fill="#fff"/></symbol>
+</defs></svg>
+<div id="bg"><i></i><i></i><i></i></div>
+<canvas id="fx"></canvas>
+
+<section class="screen on" id="s1">
+  <div class="stage" id="st1"><svg viewBox="0 0 200 230" aria-hidden="true"><use href="#trophy"/></svg></div>
+  <h1>The team has been phenomenal</h1>
+  <p>Two senior consultants and two consultants stood out in Weeks 1 and 2 of the Aesthesis Foundation project. Charge the trophy and read a short note from me to find out who.</p>
+  <button class="btn" id="go">Open the vault</button>
+</section>
+
+<section class="screen" id="s2">
+  <h2>Charge the trophy</h2>
+  <p id="gtxt">Tap it as fast as you can. The energy drains when you stop.</p>
+  <div class="stage" id="st2">
+    <button id="tro" aria-label="Tap to charge the trophy"><svg viewBox="0 0 200 230" aria-hidden="true"><use href="#trophy"/></svg></button>
+  </div>
+  <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Trophy charge" id="mt"><i id="mf"></i></div>
+  <button class="link" id="skip">Skip the challenge</button>
+</section>
+
+<section class="screen" id="s2b">
+  <div class="stage" id="st3">
+    <svg viewBox="0 0 200 230" aria-hidden="true">
+      <path d="M100 215V120M100 215C80 170 55 150 50 118M100 215C120 170 145 150 150 118" fill="none" stroke="#22a06b" stroke-width="6" stroke-linecap="round"/>
+      <path d="M100 175c-22-4-30-18-30-30 18 0 30 10 30 30ZM100 190c22-4 32-18 32-30-20 0-32 10-32 30Z" fill="#22a06b"/>
+      <g id="rose"><circle cx="100" cy="95" r="34" fill="#ff3d9a"/><circle cx="100" cy="95" r="24" fill="#e0206f"/><circle cx="100" cy="95" r="14" fill="#ff3d9a"/><path d="M100 95m-8 0a8 8 0 1 1 8 8" fill="none" stroke="#b3124f" stroke-width="3" stroke-linecap="round"/></g>
+      <g transform="translate(-50 25) scale(.8 .8) translate(25 15)"><circle cx="100" cy="95" r="34" fill="#ff7ab8"/><circle cx="100" cy="95" r="22" fill="#ff3d9a"/><circle cx="100" cy="95" r="11" fill="#ff7ab8"/></g>
+      <g transform="translate(50 25) scale(.8 .8) translate(25 15)"><circle cx="100" cy="95" r="34" fill="#ffb800"/><circle cx="100" cy="95" r="22" fill="#ff9a00"/><circle cx="100" cy="95" r="11" fill="#ffb800"/></g>
+      <path d="M72 205h56l-8 22H80Z" fill="#ff3d9a" opacity=".85"/>
+    </svg>
+  </div>
+  <h2>Hi Team!</h2>
+  <div style="max-width:32em;display:flex;flex-direction:column;gap:12px;color:var(--mute)">
+    <p>Great work and team deserves to be appreciated and I want you all to know how much we appreciate the good work and that no work goes unnoticed.</p>
+    <p>I hope that we all can make good memories and work together to successfully complete the project and keep impressing our client with our brilliant strategies.</p>
+    <p>Thank you, Team.</p>
+    <p>Regards,<br>Hiya</p>
+  </div>
+  <button class="btn" id="cont">Now, the spotlight</button>
+</section>
+
+<section class="screen" id="s3">
+  <h2>And the spotlight goes to…</h2>
+  <p>Tap each card to reveal a name.</p>
+  <div class="grp"><h2 style="font-size:20px">Senior consultants of the week</h2><div class="grid" id="g1"></div></div>
+  <div class="grp"><h2 style="font-size:20px">Consultants of the week</h2><div class="grid" id="g2"></div></div>
+  <div id="fin"><h2>Thank you for an incredible start</h2><p>The client is already noticing. Let's keep this energy for the rest of the plan.</p><div class="acts"><button class="btn" id="again">Replay the reveal</button></div></div>
+</section>
+
+
+<script>
+const $=s=>document.querySelector(s);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const NAMES=['Arushi','Gunekka','Shreyasi','Chandini'];
+const ROLES=['Senior Consultant of the Week','Senior Consultant of the Week','Consultant of the Week','Consultant of the Week'];
+
+/* sparkles */
+function sparkle(el){
+  const cols=['#ffb800','#ff3d9a','#22d3ee'];
+  for(let i=0;i<12;i++){
+    const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    s.setAttribute('class','sp');
+    s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;animation-delay:'+Math.random()*2.2+'s;fill:'+cols[i%3];
+    s.innerHTML='<use href="#st"/>';el.appendChild(s);
+  }
+}
+sparkle($('#st1'));sparkle($('#st2'));sparkle($('#st3'));
+
+/* confetti */
+const cv=$('#fx'),cx=cv.getContext('2d');let ps=[],run=false;
+function fit(){cv.width=innerWidth;cv.height=innerHeight}fit();addEventListener('resize',fit);
+function burst(x,y,n=90){
+  if(reduce)return;
+  const cols=['#ffb800','#ff3d9a','#22d3ee','#ffffff','#8b5cf6'];
+  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=4+Math.random()*9;
+    ps.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-5,r:3+Math.random()*5,c:cols[i%5],rot:Math.random()*6,vr:(Math.random()-.5)*.4,l:1})}
+  if(!run){run=true;requestAnimationFrame(tick)}
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  ps=ps.filter(p=>p.l>0);
+  for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.28;p.vx*=.99;p.rot+=p.vr;p.l-=.011;
+    cx.save();cx.globalAlpha=Math.max(p.l,0);cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.fillRect(-p.r,-p.r/2,p.r*2,p.r);cx.restore()}
+  if(ps.length)requestAnimationFrame(tick);else run=false;
+}
+
+/* screens */
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));scrollTo(0,0)}
+$('#go').onclick=()=>{show('s2');startGame()};
+$('#skip').onclick=()=>{stopGame();openVault()};
+
+/* round one: charge the trophy */
+let p=0,last=0,raf=0,playing=false;
+function startGame(){p=10;last=performance.now();playing=true;$('#gtxt').textContent='Tap it as fast as you can. The energy drains when you stop.';draw();raf=requestAnimationFrame(loop)}
+function stopGame(){playing=false;cancelAnimationFrame(raf)}
+function loop(t){
+  if(!playing)return;
+  p=Math.max(0,p-(t-last)*.014);last=t;draw();
+  if(p>=100){win();return}
+  raf=requestAnimationFrame(loop);
+}
+function draw(){$('#mf').style.width=p+'%';$('#mt').setAttribute('aria-valuenow',Math.round(p))}
+$('#tro').onclick=()=>{
+  if(!playing)return;
+  p=Math.min(100,p+7);draw();
+  const t=$('#tro');t.classList.add('hit');setTimeout(()=>t.classList.remove('hit'),90);
+  const r=t.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/3,6);
+  if(p>=100)win();
+};
+function win(){
+  stopGame();draw();$('#gtxt').textContent='Vault unlocked!';
+  const r=$('#tro').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,160);
+  setTimeout(showNote,1100);
+}
+
+/* round two: heartfelt note */
+function showNote(){show('s2b');burst(innerWidth/2,innerHeight/3,80)}
+$('#cont').onclick=openVault;
+
+/* reveal */
+let done=0,busy=false;
+function openVault(){show('s3');buildCards()}
+function buildCards(){
+  done=0;busy=false;$('#fin').classList.remove('on');
+  $('#g1').innerHTML='';$('#g2').innerHTML='';
+  NAMES.forEach((n,i)=>{
+    const b=document.createElement('button');b.className='card';
+    b.innerHTML='<div><svg aria-hidden="true"><use href="#'+(i<2?'crown':'medal')+'"/></svg><span class="role">'+ROLES[i]+'</span><span class="nm">? ? ? ? ?</span><span class="tap">Tap to reveal</span></div>';
+    b.onclick=()=>reveal(b,i);
+    $(i<2?'#g1':'#g2').appendChild(b);
+  });
+}
+const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ#@%&*';
+function scramble(el,fin,cb){
+  if(reduce){el.textContent=fin;cb();return}
+  const t0=performance.now(),dur=1500;
+  (function f(t){
+    const k=Math.min(1,(t-t0)/dur),lk=Math.floor(k*fin.length);let s='';
+    for(let i=0;i<fin.length;i++)s+=i<lk?fin[i]:CH[Math.random()*CH.length|0];
+    el.textContent=s;
+    if(k<1)requestAnimationFrame(f);else{el.textContent=fin;cb()}
+  })(t0);
+}
+function reveal(b,i){
+  if(busy||b.classList.contains('done'))return;
+  busy=true;
+  scramble(b.querySelector('.nm'),NAMES[i],()=>{
+    b.classList.add('done');
+    const r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,120);
+    busy=false;done++;
+    if(done===4)setTimeout(()=>{$('#fin').classList.add('on');$('#fin').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});burst(innerWidth/2,innerHeight/3,220)},700);
+  });
+}
+$('#again').onclick=()=>show('s1');
+
+</script>
+</body>
+</html>
